@@ -1,17 +1,15 @@
 {
-    "name": "onramplab/laravel-package-template",
-    "description": "An laravel template",
+    "name": "onramplab/laravel-webhooks",
+    "description": "The Laravel Webhook Package simplifies webhook dispatching in Laravel applications. It allows users to easily trigger webhooks, customize payload, set exclusion criteria, handle retries, and enhance security.",
     "type": "library",
     "license": "MIT",
     "keywords": [
-        "template",
         "laravel",
         "package",
-        "skeleton",
-        "boilerplate",
-        "laravel template",
-        "package template",
-        "laravel package template"
+        "laravle package",
+        "laravel webhooks",
+        "webhook",
+        "dispatch webhooks"
     ],
     "authors": [
         {
@@ -23,6 +21,7 @@
     "prefer-stable": true,
     "require": {
         "php": ">=8.0",
+        "guzzlehttp/guzzle": "^7.7",
         "illuminate/support": "^8.0|^9.0"
     },
     "require-dev": {
@@ -40,12 +39,13 @@
     },
     "autoload": {
         "psr-4": {
-            "OnrampLab\\LaravelPackageTemplate\\": "src/"
+            "OnrampLab\\Webhooks\\": "src/",
+            "OnrampLab\\Webhooks\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "OnrampLab\\LaravelPackageTemplate\\Tests\\": "tests"
+            "OnrampLab\\Webhooks\\Tests\\": "tests"
         }
     },
     "extra": {
@@ -54,7 +54,7 @@
         },
         "laravel": {
             "providers": [
-                "OnrampLab\\LaravelPackageTemplate\\LaravelPackageTemplateServiceProvider"
+                "OnrampLab\\Webhooks\\LaravelWebhooksServiceProvider"
             ]
         }
     },
