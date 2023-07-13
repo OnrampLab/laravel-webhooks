@@ -54,7 +54,7 @@
         },
         "laravel": {
             "providers": [
-                "OnrampLab\\Webhooks\\LaravelWebhooksServiceProvider"
+                "OnrampLab\\Webhooks\\WebhooksServiceProvider"
             ]
         }
     },
