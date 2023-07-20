@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('webhook_logs', function (Blueprint $table) {
             $table->id();
+            $table->timestamps();
             $table->unsignedBigInteger('webhook_id');
             $table->timestamp('event_occurred_at');
             $table->string('endpoint');
@@ -27,7 +28,6 @@ return new class extends Migration
             $table->text('error_type')->nullable();
             $table->text('error_message')->nullable();
             $table->foreign('webhook_id')->references('id')->on('webhooks')->onDelete('cascade');
-            $table->timestamps();
         });
     }
 
