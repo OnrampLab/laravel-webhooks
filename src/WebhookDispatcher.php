@@ -45,7 +45,22 @@ class WebhookDispatcher
 
     protected function areExclusionCriteriaMatched(Webhookable $event, Webhook $webhook): bool
     {
-        //to be implemented
+        $webhookExclusionCriteria = $webhook->exclusion_criteria;
+        $eventExclusionCriteria = $event->getExclusionCriteria();
+
+        foreach ($eventExclusionCriteria as $eventExclusionCriterion) {
+            $eventExclusionCriteriaName = $eventExclusionCriterion->getName();
+            $eventExclusionCriteriaValues = $eventExclusionCriterion->getValues();
+
+            foreach ($webhookExclusionCriteria as $webhookExclusionCriterion) {
+                $webhookExclusionCriteriaName = $webhookExclusionCriterion->getName();
+                $webhookExclusionCriteriaValues = $webhookExclusionCriterion->getValues();
+                if ($eventExclusionCriteriaName === $webhookExclusionCriteriaName && count(array_intersect($webhookExclusionCriteriaValues, $eventExclusionCriteriaValues)) > 0) {
+                    return true;
+                }
+            }
+        }
+
         return  false;
     }
 
