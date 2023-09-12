@@ -4,7 +4,7 @@ namespace OnrampLab\Webhooks\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use OnrampLab\Webhooks\Models\Webhook;
-use OnrampLab\Webhooks\ValueObjects\ExclusionCriteria;
+use OnrampLab\Webhooks\ValueObjects\ExclusionCriterion;
 
 class WebhookFactory extends Factory
 {
@@ -27,11 +27,11 @@ class WebhookFactory extends Factory
             'http_verb' => 'POST',
             'enabled' => true,
             'exclusion_criteria' => [
-                new ExclusionCriteria([
-                    'name' => 'campaign_ids',
+                new ExclusionCriterion([
+                    'name' => 'account_ids',
                     'values' => [1, 2]
                 ]),
-                new ExclusionCriteria([
+                new ExclusionCriterion([
                     'name' => 'events',
                     'values' => ['sms_sent', 'sms_delivered']
                 ])

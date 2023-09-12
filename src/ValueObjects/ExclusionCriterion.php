@@ -4,7 +4,7 @@ namespace OnrampLab\Webhooks\ValueObjects;
 
 use JsonSerializable;
 
-class ExclusionCriteria implements JsonSerializable
+class ExclusionCriterion implements JsonSerializable
 {
     public string $name;
 
@@ -32,5 +32,15 @@ class ExclusionCriteria implements JsonSerializable
     public function jsonSerialize(): array
     {
         return $this->toArray();
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getValues(): array
+    {
+        return $this->values;
     }
 }
