@@ -33,7 +33,7 @@ class WebhookFactory extends Factory
                 ]),
                 new ExclusionCriterion([
                     'name' => 'events',
-                    'values' => ['sms_sent', 'sms_delivered']
+                    'values' => ['test_event']
                 ])
             ],
             'contextable_id' => $this->faker->randomNumber(),
