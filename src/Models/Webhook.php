@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use OnrampLab\Webhooks\AttributeCastors\ExclusionCriteriaCastor;
 use OnrampLab\Webhooks\Database\Factories\WebhookFactory;
 
 
@@ -37,7 +36,7 @@ class Webhook extends Model
      */
     protected $casts = [
         'enabled' => 'boolean',
-        'exclusion_criteria' => ExclusionCriteriaCastor::class,
+        'exclusion_criteria' => 'array',
         'headers' => 'array'
     ];
 

@@ -12,6 +12,4 @@ interface Webhookable
     public function getWebhookContext(): ?Model;
 
     public function getEventOccurredAt(): ?Carbon;
-
-    public function getExclusionCriteria(): array;
 }
