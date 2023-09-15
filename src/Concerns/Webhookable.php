@@ -26,9 +26,4 @@ trait Webhookable
     {
         return [];
     }
-
-    public function getExclusionCriteria(): array
-    {
-        return [];
-    }
 }

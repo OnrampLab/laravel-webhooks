@@ -31,6 +31,7 @@ class WebhookDispatcherTest extends TestCase
      */
     public function should_dispatch_webhook_according_to_context(): void
     {
+
         Queue::fake();
 
         $dispatcher = new WebhookDispatcher();

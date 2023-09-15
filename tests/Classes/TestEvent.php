@@ -2,9 +2,9 @@
 
 namespace OnrampLab\Webhooks\Tests\Classes;
 
+use Illuminate\Database\Eloquent\Model;
 use OnrampLab\Webhooks\Contracts\Webhookable as WebhookableContract;
 use \OnrampLab\Webhooks\Concerns\Webhookable as WebhookableTrait;
-use OnrampLab\Webhooks\ValueObjects\ExclusionCriterion;
 
 class TestEvent implements WebhookableContract
 {
@@ -19,15 +19,5 @@ class TestEvent implements WebhookableContract
     public function getWebhookContext(): ?Account
     {
         return $this->account;
-    }
-
-    public function getExclusionCriteria(): array
-    {
-        return [
-            new ExclusionCriterion([
-                'name' => 'events',
-                'values' => ['test_event']
-            ]),
-        ];
     }
 }

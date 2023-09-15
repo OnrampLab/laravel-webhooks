@@ -14,13 +14,8 @@ class WebhookDispatcher
 
     public function handle(Webhookable $event)
     {
-        $webhooks = $this->getWebhooks($event);
-
-        if ($webhooks->isEmpty()) {
-            return;
-        }
-
         $payload = $event->getWebhookPayload();
+        $webhooks = $this->getWebhooks($event);
         $this->eventOccurredAt = $event->getEventOccurredAt();
 
         foreach ($webhooks as $webhook) {
@@ -50,26 +45,7 @@ class WebhookDispatcher
 
     protected function areExclusionCriteriaMatched(Webhookable $event, Webhook $webhook): bool
     {
-        $webhookExclusionCriteria = $webhook->exclusion_criteria;
-        $eventExclusionCriteria = $event->getExclusionCriteria();
-
-        if (is_null($webhookExclusionCriteria) || empty($eventExclusionCriteria))  {
-            return false;
-        }
-
-        foreach ($eventExclusionCriteria as $eventExclusionCriterion) {
-            $eventExclusionCriteriaName = $eventExclusionCriterion->getName();
-            $eventExclusionCriteriaValues = $eventExclusionCriterion->getValues();
-
-            foreach ($webhookExclusionCriteria as $webhookExclusionCriterion) {
-                $webhookExclusionCriteriaName = $webhookExclusionCriterion->getName();
-                $webhookExclusionCriteriaValues = $webhookExclusionCriterion->getValues();
-                if ($eventExclusionCriteriaName === $webhookExclusionCriteriaName && count(array_intersect($webhookExclusionCriteriaValues, $eventExclusionCriteriaValues)) > 0) {
-                    return true;
-                }
-            }
-        }
-
+        //to be implemented
         return  false;
     }
 
