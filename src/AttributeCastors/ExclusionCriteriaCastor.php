@@ -9,6 +9,9 @@ class ExclusionCriteriaCastor implements CastsAttributes
 {
     public function get($model, string $key, $value, array $attributes)
     {
+        if (is_null($value)) {
+            return null;
+        }
         // Convert the JSON string to an array of ExclusionCriterion objects
         $exclusionCriteria = json_decode($value, true);
         $casted = [];
@@ -25,6 +28,9 @@ class ExclusionCriteriaCastor implements CastsAttributes
 
     public function set($model, string $key, $value, array $attributes)
     {
+        if (is_null($value)) {
+            return null;
+        }
         // Convert the array of ExclusionCriterion objects back to a JSON string
         $formatted = [];
 
