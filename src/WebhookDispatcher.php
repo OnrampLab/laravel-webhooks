@@ -14,8 +14,13 @@ class WebhookDispatcher
 
     public function handle(Webhookable $event)
     {
-        $payload = $event->getWebhookPayload();
         $webhooks = $this->getWebhooks($event);
+
+        if ($webhooks->isEmpty()) {
+            return;
+        }
+
+        $payload = $event->getWebhookPayload();
         $this->eventOccurredAt = $event->getEventOccurredAt();
 
         foreach ($webhooks as $webhook) {
@@ -47,6 +52,10 @@ class WebhookDispatcher
     {
         $webhookExclusionCriteria = $webhook->exclusion_criteria;
         $eventExclusionCriteria = $event->getExclusionCriteria();
+
+        if (is_null($webhookExclusionCriteria) || empty($eventExclusionCriteria))  {
+            return false;
+        }
 
         foreach ($eventExclusionCriteria as $eventExclusionCriterion) {
             $eventExclusionCriteriaName = $eventExclusionCriterion->getName();
