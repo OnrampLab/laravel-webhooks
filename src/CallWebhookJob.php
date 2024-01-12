@@ -23,7 +23,6 @@ class CallWebhookJob  implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, SerializesModels, Queueable;
 
-    public ?array $body;
     public ?string $endpoint;
     public ?string $eventName;
     public ?string $errorType;
@@ -106,7 +105,7 @@ class CallWebhookJob  implements ShouldQueue
             'webhook_id' => $this->webhook->id,
             'event_occurred_at' => $this->eventOccurredAt->toDateTimeString(),
             'endpoint' => $this->endpoint,
-            'request_body' => $this->body,
+            'request_body' => $this->getBody(),
             'sent_at' => $this->sentAt,
             'received_at' => $this->receivedAt,
             'response' => $this->response,
