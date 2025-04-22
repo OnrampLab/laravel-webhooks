@@ -26,16 +26,7 @@ class WebhookFactory extends Factory
             'endpoint' => $this->faker->url,
             'http_verb' => 'POST',
             'enabled' => true,
-            'exclusion_criteria' => [
-                new ExclusionCriterion([
-                    'name' => 'account_ids',
-                    'values' => [1, 2]
-                ]),
-                new ExclusionCriterion([
-                    'name' => 'events',
-                    'values' => ['test_event']
-                ])
-            ],
+            'exclusion_criteria' => [],
             'contextable_id' => $this->faker->randomNumber(),
             'contextable_type' => $this->faker->word(),
             'headers' => null,

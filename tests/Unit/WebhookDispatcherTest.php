@@ -31,6 +31,7 @@ class WebhookDispatcherTest extends TestCase
     {
         $dispatcher = new WebhookDispatcher();
         $dispatcher->handle($this->event);
+        $this->callWebhookJobMock->shouldNotHaveReceived('dispatch');
     }
 }
 
