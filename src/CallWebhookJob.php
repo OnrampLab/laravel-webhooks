@@ -10,7 +10,7 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use OnrampLab\Webhooks\Events\FinalWebhookCallFailedEvent;
@@ -25,16 +25,16 @@ class CallWebhookJob  implements ShouldQueue
 
     public ?string $endpoint;
     public ?string $eventName;
-    public ?string $errorType;
-    public ?string $errorMessage;
+    public ?string $errorType = null;
+    public ?string $errorMessage = null;
     public ?Carbon $eventOccurredAt;
     public ?float $executionStartTime;
     public array $headers = [];
     public string $httpVerb;
     public array $payload = [];
-    public ?string $receivedAt;
-    public ?Response $response;
-    public ?string $sentAt;
+    public ?string $receivedAt = null;
+    public ?Response $response = null;
+    public ?string $sentAt = null;
     public Webhook $webhook;
 
     public function __construct(?array $payload, Webhook $webhook, ?Carbon $eventOccurredAt)
@@ -58,7 +58,8 @@ class CallWebhookJob  implements ShouldQueue
                 $this->createWebhookLog();
             }
 
-            if (! Str::startsWith($this->response->getStatusCode(), 2)) {
+            $statusCode = $this->response->getStatusCode();
+            if ($statusCode < 200 || $statusCode >= 300) {
                 throw new Exception('Webhook call failed');
             }
 
@@ -108,7 +109,7 @@ class CallWebhookJob  implements ShouldQueue
             'request_body' => $this->getBody(),
             'sent_at' => $this->sentAt,
             'received_at' => $this->receivedAt,
-            'response' => $this->response,
+            'response' => json_decode($this->response->getBody()->getContents(), true),
             'status_code' => $this->response->getStatusCode(),
             'execution_time' => microtime(true) - $this->executionStartTime,
             'error_type' => $this->errorType,

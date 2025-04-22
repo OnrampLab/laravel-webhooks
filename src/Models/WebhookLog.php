@@ -41,6 +41,7 @@ class WebhookLog extends Model
         'sent_at' => 'datetime:H:i:s',
         'received_at' => 'datetime:H:i:s',
         'event_occurred_at' => 'datetime:H:i:s',
+        'response' => 'array',
     ];
 
 
