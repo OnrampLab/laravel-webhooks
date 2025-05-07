@@ -3,14 +3,22 @@
 namespace OnrampLab\Webhooks;
 
 use Carbon\Carbon;
-use Illuminate\Foundation\Bus\PendingDispatch;
 use Illuminate\Support\Collection;
-use OnrampLab\Webhooks\Contracts\Webhookable;
 use OnrampLab\Webhooks\Models\Webhook;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use OnrampLab\Webhooks\Contracts\Webhookable;
+use Illuminate\Foundation\Bus\PendingDispatch;
 
-class WebhookDispatcher
+class WebhookDispatcher implements ShouldQueue
 {
+    public string $queue;
+
     protected ?Carbon $eventOccurredAt;
+
+    public function __construct()
+    {
+        $this->queue = config('laravel-webhooks.queue', 'default');
+    }
 
     public function handle(Webhookable $event)
     {
@@ -76,8 +84,7 @@ class WebhookDispatcher
     protected function dispatchWebhook(array $payload, Webhook $webhook): PendingDispatch
     {
         $callWebhookJob = new CallWebhookJob($payload, $webhook, $this->eventOccurredAt);
-        $config = config('laravel-webhooks');
-        return dispatch($callWebhookJob)->onQueue($config['queue']);
+        return dispatch($callWebhookJob)->onQueue($this->queue);
     }
 }
 
