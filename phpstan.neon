@@ -1,5 +1,7 @@
 includes:
-  - ./vendor/nunomaduro/larastan/extension.neon
+  - ./vendor/larastan/larastan/extension.neon
+  # Pre-existing errors at the larastan 3 upgrade; shrink this, don't grow it.
+  - ./phpstan-baseline.neon
 parameters:
 
     paths:
@@ -8,8 +10,8 @@ parameters:
     # The level 8 is the highest level
     level: 8
 
-    # ignoreErrors:
-    #    - '#Unsafe usage of new static#'
+    ignoreErrors:
+        - identifier: missingType.iterableValue
 
     excludePaths:
         - ./*/*/tests/*.php
@@ -19,4 +21,3 @@ parameters:
     databaseMigrationsPath:
         - ./database/migrations
 
-    checkMissingIterableValueType: false

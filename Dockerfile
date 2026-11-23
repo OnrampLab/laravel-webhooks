@@ -1,12 +1,12 @@
 ARG PHP_EXTENSIONS="pdo_sqlite"
-FROM thecodingmachine/php:8.0-v4-slim-apache
+FROM thecodingmachine/php:8.4-v5-slim-apache
 
 USER root
 
 WORKDIR /var/www/html
 
 # install pickle
-RUN apt-get update && apt-get install -y bash wget
+RUN apt-get update && apt-get install -y bash wget gnupg
 RUN wget -O phive.phar https://phar.io/releases/phive.phar
 RUN wget -O phive.phar.asc https://phar.io/releases/phive.phar.asc
 RUN gpg --keyserver hkps://keys.openpgp.org --recv-keys 0x9D8A98B29B2D5D79

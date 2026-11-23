@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Queue;
 
 class WebhookDispatcherTest extends TestCase
 {
+    protected Account $account;
+    protected Webhook $webhook;
+    protected Webhook $webhook2;
+    protected TestEvent $event;
+
     protected function setUp(): void
     {
         parent::setUp();
@@ -26,10 +31,7 @@ class WebhookDispatcherTest extends TestCase
         $this->event = new TestEvent($this->account);
     }
 
-    /**
-     * @test
-     */
-    public function should_dispatch_webhook_according_to_context(): void
+    public function test_should_dispatch_webhook_according_to_context(): void
     {
         Queue::fake();
 

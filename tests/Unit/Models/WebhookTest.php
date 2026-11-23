@@ -8,10 +8,7 @@ use OnrampLab\Webhooks\Tests\TestCase;
 
 class WebhookTest extends TestCase
 {
-    /**
-     * @test
-     */
-    public function relationship_should_work(): void
+    public function test_relationship_should_work(): void
     {
         $webhook = Webhook::factory()->create();
         $webhookLog = WebhookLog::factory()->create(['webhook_id' => $webhook->id]);
