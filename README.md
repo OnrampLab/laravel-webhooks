@@ -1,7 +1,7 @@
 # laravel-webhooks
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![CircleCI](https://circleci.com/gh/OnrampLab/laravel-webhooks.svg?style=shield)](https://circleci.com/gh/OnrampLab/laravel-webhooks)
+[![CI](https://github.com/OnrampLab/laravel-webhooks/actions/workflows/ci.yml/badge.svg)](https://github.com/OnrampLab/laravel-webhooks/actions/workflows/ci.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/onramplab/laravel-webhooks.svg?style=flat-square)](https://packagist.org/packages/onramplab/laravel-webhooks)
 
 The Laravel Webhook Package simplifies webhook dispatching in Laravel applications. It allows users to easily trigger webhooks, customize payload, set exclusion criteria, handle retries, and enhance security.
@@ -58,7 +58,7 @@ This will create a basic project structure for you:
 * **README.md** it is a mini documentation of the library, this is usually the "home page" of your repo if you published it on GitHub and Packagist;
 * **composer.json** is where the information about your library is stored, like package name, author and dependencies;
 * **phpunit.xml** It is a configuration file of PHPUnit, so that tests classes will be able to test the classes you've written;
-* **.travis.yml** basic configuration for Travis CI with configured test coverage reporting for code climate.
+* **.github/workflows/ci.yml** GitHub Actions matrix testing every supported PHP / Laravel combination.
 
 Please refer to original [article](http://www.darwinbiler.com/creating-composer-package-library/) for more information.
 
