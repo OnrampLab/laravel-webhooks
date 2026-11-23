@@ -47,7 +47,7 @@ jobs:
                   sudo chmod +x phive.phar
                   sudo mv phive.phar /usr/local/bin/phive
 
-                  phive install --force-accept-unsigned --trust-gpg-keys 67F861C3D889C656 phpDocumentor
+                  phive install --force-accept-unsigned --trust-gpg-keys 67F861C3D889C656,6DA3ACC4991FFAE5 phpDocumentor
             - run:
                 name: PHPCS report (non-blocking)
                 command: |
