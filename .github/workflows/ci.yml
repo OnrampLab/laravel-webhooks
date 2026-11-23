@@ -79,6 +79,10 @@ jobs:
 
       - name: Build documents
         if: matrix.lint
+        env:
+          # phive queries api.github.com for releases; unauthenticated calls
+          # from shared runners hit the rate limit (HTTP 403).
+          GITHUB_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           phive install --force-accept-unsigned --trust-gpg-keys 67F861C3D889C656,6DA3ACC4991FFAE5 phpDocumentor
           composer docs
