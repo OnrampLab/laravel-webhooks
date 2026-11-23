@@ -15,7 +15,7 @@ if [ "${LINT:-0}" != "1" ]; then
     # Dev dependencies only needed for lint; they have higher PHP floors
     # than the oldest lanes. phpunit, testbench and mockery stay.
     composer remove --dev --no-update --no-interaction \
-        nunomaduro/larastan \
+        larastan/larastan \
         nunomaduro/phpinsights \
         rector/rector \
         spatie/phpunit-watcher \

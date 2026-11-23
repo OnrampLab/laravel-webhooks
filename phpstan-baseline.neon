@@ -1,0 +1,163 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Class OnrampLab\\Webhooks\\AttributeCastors\\ExclusionCriteriaCastor implements generic interface Illuminate\\Contracts\\Database\\Eloquent\\CastsAttributes but does not specify its types\: TGet, TSet$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/AttributeCastors/ExclusionCriteriaCastor.php
+
+		-
+			message: '#^Cannot call method getBody\(\) on GuzzleHttp\\Psr7\\Response\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/CallWebhookJob.php
+
+		-
+			message: '#^Cannot call method getStatusCode\(\) on GuzzleHttp\\Psr7\\Response\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/CallWebhookJob.php
+
+		-
+			message: '#^Cannot call method toDateTimeString\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/CallWebhookJob.php
+
+		-
+			message: '#^Method OnrampLab\\Webhooks\\CallWebhookJob\:\:createWebhookLog\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/CallWebhookJob.php
+
+		-
+			message: '#^Method OnrampLab\\Webhooks\\CallWebhookJob\:\:dispatchEvent\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/CallWebhookJob.php
+
+		-
+			message: '#^Method OnrampLab\\Webhooks\\CallWebhookJob\:\:handle\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/CallWebhookJob.php
+
+		-
+			message: '#^Method OnrampLab\\Webhooks\\CallWebhookJob\:\:makeRequest\(\) should return GuzzleHttp\\Psr7\\Response but returns Psr\\Http\\Message\\ResponseInterface\.$#'
+			identifier: return.type
+			count: 1
+			path: src/CallWebhookJob.php
+
+		-
+			message: '#^Parameter \#2 \$uri of method GuzzleHttp\\Client\:\:request\(\) expects Psr\\Http\\Message\\UriInterface\|string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/CallWebhookJob.php
+
+		-
+			message: '#^Property OnrampLab\\Webhooks\\CallWebhookJob\:\:\$payload \(array\) does not accept array\|null\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/CallWebhookJob.php
+
+		-
+			message: '#^Property OnrampLab\\Webhooks\\CallWebhookJob\:\:\$response \(GuzzleHttp\\Psr7\\Response\|null\) does not accept Psr\\Http\\Message\\ResponseInterface\|null\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/CallWebhookJob.php
+
+		-
+			message: '#^Trait OnrampLab\\Webhooks\\Concerns\\Webhookable is used zero times and is not analysed\.$#'
+			identifier: trait.unused
+			count: 1
+			path: src/Concerns/Webhookable.php
+
+		-
+			message: '#^Class OnrampLab\\Webhooks\\Models\\Webhook uses generic trait Illuminate\\Database\\Eloquent\\Factories\\HasFactory but does not specify its types\: TFactory$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Models/Webhook.php
+
+		-
+			message: '#^Method OnrampLab\\Webhooks\\Models\\Webhook\:\:newFactory\(\) return type with generic class Illuminate\\Database\\Eloquent\\Factories\\Factory does not specify its types\: TModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Models/Webhook.php
+
+		-
+			message: '#^Method OnrampLab\\Webhooks\\Models\\Webhook\:\:webhookLogs\(\) return type with generic class Illuminate\\Database\\Eloquent\\Relations\\HasMany does not specify its types\: TRelatedModel, TDeclaringModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Models/Webhook.php
+
+		-
+			message: '#^PHPDoc type array of property OnrampLab\\Webhooks\\Models\\Webhook\:\:\$casts is not covariant with PHPDoc type array\<string, string\> of overridden property Illuminate\\Database\\Eloquent\\Model\:\:\$casts\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: src/Models/Webhook.php
+
+		-
+			message: '#^PHPDoc type array of property OnrampLab\\Webhooks\\Models\\Webhook\:\:\$fillable is not covariant with PHPDoc type list\<string\> of overridden property Illuminate\\Database\\Eloquent\\Model\:\:\$fillable\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: src/Models/Webhook.php
+
+		-
+			message: '#^Class OnrampLab\\Webhooks\\Models\\WebhookLog uses generic trait Illuminate\\Database\\Eloquent\\Factories\\HasFactory but does not specify its types\: TFactory$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Models/WebhookLog.php
+
+		-
+			message: '#^Method OnrampLab\\Webhooks\\Models\\WebhookLog\:\:newFactory\(\) return type with generic class Illuminate\\Database\\Eloquent\\Factories\\Factory does not specify its types\: TModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Models/WebhookLog.php
+
+		-
+			message: '#^Method OnrampLab\\Webhooks\\Models\\WebhookLog\:\:webhook\(\) return type with generic class Illuminate\\Database\\Eloquent\\Relations\\BelongsTo does not specify its types\: TRelatedModel, TDeclaringModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Models/WebhookLog.php
+
+		-
+			message: '#^PHPDoc type array of property OnrampLab\\Webhooks\\Models\\WebhookLog\:\:\$casts is not covariant with PHPDoc type array\<string, string\> of overridden property Illuminate\\Database\\Eloquent\\Model\:\:\$casts\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: src/Models/WebhookLog.php
+
+		-
+			message: '#^PHPDoc type array of property OnrampLab\\Webhooks\\Models\\WebhookLog\:\:\$fillable is not covariant with PHPDoc type list\<string\> of overridden property Illuminate\\Database\\Eloquent\\Model\:\:\$fillable\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: src/Models/WebhookLog.php
+
+		-
+			message: '#^Parameter \#2 \$data of function hash_hmac expects string, string\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Signer/DefaultSigner.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/WebhookDispatcher.php
+
+		-
+			message: '#^Method OnrampLab\\Webhooks\\WebhookDispatcher\:\:getWebhooks\(\) return type with generic class Illuminate\\Support\\Collection does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/WebhookDispatcher.php
+
+		-
+			message: '#^Method OnrampLab\\Webhooks\\WebhookDispatcher\:\:handle\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/WebhookDispatcher.php
+
+		-
+			message: '#^Cannot access offset ''Illuminate\\\\Contracts\\\\Events\\\\Dispatcher'' on Illuminate\\Contracts\\Foundation\\Application\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/WebhooksServiceProvider.php
