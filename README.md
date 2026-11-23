@@ -26,6 +26,20 @@ Key features of the package include:
 - **Security options**: Incorporate optional authentication mechanisms such as headers or secrets to secure the webhooks and ensure they are only triggered by trusted sources.
 
 - **Dynamic Custom Fields**
+
+## Compatibility
+
+| Laravel | PHP |
+|---|---|
+| 8.x (CI-verified from 8.75) | 8.0+ |
+| 9.x | 8.0+ |
+| 10.x | 8.1+ |
+| 11.x | 8.2+ |
+| 12.x | 8.2+ |
+| 13.x | 8.3+ |
+
+Laravel 13 is supported from `1.4.0`.
+
 ## Installation
 
 ```bash
