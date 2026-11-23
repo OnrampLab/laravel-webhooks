@@ -8,9 +8,15 @@ use OnrampLab\Webhooks\Tests\Classes\Account;
 use OnrampLab\Webhooks\Tests\Classes\TestEvent;
 use OnrampLab\Webhooks\Tests\TestCase;
 use OnrampLab\Webhooks\WebhookDispatcher;
+use Mockery\MockInterface;
 
 class WebhookDispatcherTest extends TestCase
 {
+    protected Account $account;
+    protected Webhook $webhook;
+    protected TestEvent $event;
+    protected MockInterface $callWebhookJobMock;
+
     protected function setUp(): void
     {
         parent::setUp();
@@ -24,10 +30,7 @@ class WebhookDispatcherTest extends TestCase
         $this->callWebhookJobMock = $this->mock(CallWebhookJob::class);
     }
 
-    /**
-     * @test
-     */
-    public function should_not_dispatch_webhook_when_exclusion_criteria_are_matched(): void
+    public function test_should_not_dispatch_webhook_when_exclusion_criteria_are_matched(): void
     {
         $dispatcher = new WebhookDispatcher();
         $dispatcher->handle($this->event);

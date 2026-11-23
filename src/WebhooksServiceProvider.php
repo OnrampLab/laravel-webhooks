@@ -4,7 +4,7 @@ namespace OnrampLab\Webhooks;
 
 use Illuminate\Support\ServiceProvider;
 use OnrampLab\Webhooks\Contracts\Webhookable;
-use Illuminate\Events\Dispatcher;
+use Illuminate\Contracts\Events\Dispatcher;
 
 class WebhooksServiceProvider extends ServiceProvider
 {
